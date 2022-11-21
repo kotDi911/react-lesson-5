@@ -8,7 +8,8 @@ class Main extends Component {
         const {data} = this.props;
         return (
             <div className="cards">
-                {data.map((prop)=> <Card key={prop.id} {...prop}/>)}
+                {console.log(this.props)}
+                {data !== null && data.map((prop)=> <Card key={prop.id} {...prop}/>)}
             </div>
         )
     }

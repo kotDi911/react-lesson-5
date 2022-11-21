@@ -1,0 +1,35 @@
+.form {
+  margin: 25px auto 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 500px;
+}
+
+.input {
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__label {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+
+  &__input {
+    padding: 10px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+.submitBtn {
+  padding: 10px;
+  border-radius: 20px;
+  margin-top: 25px;
+}
+option{
+  padding: 15px;
+}

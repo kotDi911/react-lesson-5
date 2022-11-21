@@ -1,27 +1,17 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import {data} from "../HOC/withForm";
 
 export const DataContext = React.createContext();
 
 export const DataProvider = (props) => {
-    const data = [
-        {
-            number: "0000000000000001",
-            numberVisible: false,
-            user: "User Name",
-            id: 11,
-            card: "visa"
-        },
-        {
-            number: "0000000000000002",
-            numberVisible: false,
-            user: "John Doe",
-            id: 21,
-            card: "mastercard"
-        },
-    ]
+    const [state, setState] = useState(null);
+
+    useEffect(()=>{
+        setState(data)
+    })
 
     return (
-        <DataContext.Provider value={data}>
+        <DataContext.Provider value={state}>
             {props.children}
         </DataContext.Provider>
     )
