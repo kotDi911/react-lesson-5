@@ -1,0 +1,22 @@
+.cards{
+  overflow-y: scroll;
+  height: 90vh;
+}
+.header{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 50px;
+  height: 10vh;
+  font-size: 24px;
+  font-weight: bold;
+  align-items: center;
+  background: silver;
+}
+.toggleBtn{
+  text-decoration: none;
+  color: black;
+  font-size: 24px;
+  &__img{
+    height: 30px;
+  }
+}

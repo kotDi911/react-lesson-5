@@ -1,0 +1,79 @@
+.card {
+  position: relative;
+  width: 500px;
+  height: 300px;
+  background: #2a2a2a;
+  border-radius: 25px;
+  margin: 50px auto 0;
+
+  &__container {
+    position: relative;
+    height: 100%;
+  }
+
+  &__chip {
+    width: 90px;
+    position: absolute;
+    top: 30px;
+    left: 40px;
+  }
+
+  &__number {
+    font-size: 24px;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 10%;
+  }
+
+  &__user {
+    font-size: 20px;
+    color: white;
+    position: absolute;
+    top: 75%;
+    left: 10%;
+  }
+
+  &__logo {
+    width: 100px;
+    position: absolute;
+    bottom: 30px;
+    right: 50px;
+    color: white;
+  }
+
+  &__details {
+    width: 500px;
+    height: 110px;
+    background: #FBFBFF;
+    position: absolute;
+    top: 280px;
+    z-index: -1;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+  }
+
+  &__options {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 40px 0;
+    text-align: center;
+  }
+
+  &__option {
+    flex: 30%;
+  }
+
+  &__option:not(:last-child) {
+    border-right: 2px solid black;
+  }
+}
+.card:last-child {
+  margin-bottom: 50px;
+}
+
+.vr {
+  width: 2px;
+  height: 50px;
+  background: black;
+}

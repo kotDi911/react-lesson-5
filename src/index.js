@@ -1,11 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import './styles/index.css';
+import {DataProvider} from "./context/DataContext";
+import Header from "./components/mainScreen/Header";
+import {BrowserRouter as Router} from "react-router-dom";
+import "./styles/Main.scss"
+import RouterApp from "./components/router/RouterApp";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+      <Router>
+          <Header/>
+          <DataProvider>
+              <RouterApp/>
+          </DataProvider>
+      </Router>
   </React.StrictMode>
 );
