@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import Input from "../components/Input";
+import jsonData from "/src/data.json"
 
 export let data = [];
 
@@ -100,18 +101,18 @@ export const withForm = (WrappedComponent) => {
 
         onSubmit(e) {
             e.preventDefault();
-            const {user, number, cvv, card} = this.state
+            //const {user, number, cvv, card} = this.state
             if (!this.errCheck()) {
                 data = [...data, this.state]
+
             }
-            console.log(data)
         };
 
         changeCheck(e, value) {
-            if(e==="card"){
+            if (e === "card") {
                 return value;
             }
-            if(e==="user"){
+            if (e === "user") {
                 return value.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());
             }
             return value;
@@ -119,9 +120,9 @@ export const withForm = (WrappedComponent) => {
 
         changeValue(e) {
 
-                this.setState({
-                    [e.target.name]: this.changeCheck(e.target.name, e.target.value)
-                })
+            this.setState({
+                [e.target.name]: this.changeCheck(e.target.name, e.target.value)
+            })
         };
 
         render() {
