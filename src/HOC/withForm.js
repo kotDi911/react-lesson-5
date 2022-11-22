@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import Input from "../components/Input";
-import jsonData from "/src/data.json"
 
 export let data = [];
 
@@ -106,6 +105,7 @@ export const withForm = (WrappedComponent) => {
                 data = [...data, this.state]
 
             }
+            console.log(data)
         };
 
         changeCheck(e, value) {
