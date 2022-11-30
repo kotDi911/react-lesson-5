@@ -13,6 +13,7 @@ class CreateCard extends Component {
             cvv: "",
             user: "",
             card: "mastercard",
+            stats: [],
             date: new Date().toLocaleDateString("en-US"),
             onSubmit: this.onSubmit.bind(this),
             onChange: this.changeValue.bind(this),

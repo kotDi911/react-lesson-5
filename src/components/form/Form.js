@@ -11,8 +11,7 @@ const inputTools = [
         },
         label: "Number",
         placeholder: "0000000000000000",
-        name: "number",
-        errorText: "Enter correct data"
+        name: "number"
     },
     {
         id: 2,
@@ -23,8 +22,7 @@ const inputTools = [
         },
         label: "CVV",
         placeholder: "123",
-        name: "cvv",
-        errorText: "Enter correct data"
+        name: "cvv"
     },
     {
         id: 3,
@@ -35,8 +33,7 @@ const inputTools = [
         },
         label: "Your fullname",
         placeholder: "John Snow",
-        name: "user",
-        errorText: "Enter correct data"
+        name: "user"
     }
 ]
 

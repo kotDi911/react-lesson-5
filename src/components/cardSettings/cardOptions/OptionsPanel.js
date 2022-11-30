@@ -4,9 +4,8 @@ import btn1h from "../../../images/btn1h.png";
 import btn2 from "../../../images/btn2.png";
 import btn3 from "../../../images/btn3.png";
 import Button from "../Button";
-import CardStats from "./CardStats";
 
-const OptionsPanel = ({showNumber, cardFlip, cardStats, isActiveIcon, isStats}) => {
+const OptionsPanel = ({showNumber, cardFlip, cardStats, isActiveIcon}) => {
     const buttons = [
         {
             img: isActiveIcon ? btn1: btn1h,

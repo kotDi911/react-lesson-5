@@ -10,7 +10,7 @@ const CardDetails = (props) => {
     useEffect(() => {
         const {setContent} = props
         setContent("/details")
-    }, [])
+    }, [props])
 
     const renderCard = () => {
         for (let i = 0; i < cards.length; i++) {
