@@ -10,6 +10,7 @@
   &__container {
     display: flex;
     flex-direction: column;
+    position: relative;
   }
 
   &__label {
@@ -22,6 +23,12 @@
     padding: 10px;
     border-radius: 20px;
     margin-bottom: 20px;
+  }
+  &__err{
+    position: absolute;
+    bottom: 0;
+    color: darkred;
+    padding-left: 20px;
   }
 }
 

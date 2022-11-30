@@ -12,7 +12,7 @@ const Input = ({placeholder, name, value, error, type, label, onChange}) => {
                 value={value}
                 onChange={onChange}
             />
-            {error !== "" && <span>{error}</span>}
+            {error !== "" && <span className="input__err">{error}</span>}
         </div>
     )
 }

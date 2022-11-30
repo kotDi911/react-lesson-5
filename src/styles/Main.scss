@@ -1,22 +1,35 @@
 .cards{
   overflow-y: scroll;
-  height: 90vh;
+  height: 93vh;
 }
+
 .header{
   display: flex;
   justify-content: space-between;
   padding: 0 50px;
-  height: 10vh;
+  height: 7vh;
   font-size: 24px;
   font-weight: bold;
   align-items: center;
   background: silver;
 }
-.toggleBtn{
+.backBtn{
   text-decoration: none;
   color: black;
   font-size: 24px;
   &__img{
     height: 30px;
   }
+}
+.toggleBtn{
+  display: block;
+  &:last-child{
+    margin-bottom: 50px;
+  }
+}
+
+.details{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

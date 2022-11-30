@@ -1,10 +1,88 @@
-.card {
-  position: relative;
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #ffeeb6;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  background: #3848d5;
+}
+
+.back-card, .front-card {
+  position: absolute;
   width: 500px;
   height: 300px;
-  background: #2a2a2a;
   border-radius: 25px;
-  margin: 25px auto;
+  left: 0;
+  top: 0;
+  transition: 1s;
+  backface-visibility: hidden;
+}
+
+.back-card {
+  background: linear-gradient(to top, black, blue);
+  transform: rotateY(180deg);
+}
+
+.front-card.active {
+  transform: rotateY(180deg);
+}
+
+.front-card.stats {
+  height: 120px;
+
+  & .card__chip {
+    opacity: 0;
+  }
+
+  & .card__number {
+    top: 20%;
+  }
+
+  & .card__user {
+    top: 60%;
+  }
+}
+
+.back-card.active {
+  transform: rotateY(360deg);
+}
+
+.items{
+  margin: 30px 20px;
+  overflow-y: scroll;
+  height: -webkit-fill-available;
+}
+
+.item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px;
+  padding: 5px 0;
+  font-size: 20px;
+  border-bottom: 2px dotted black;
+  &__title{
+    padding: 0 15px;
+    font-size: 18px;
+    text-align: left;
+    flex: 70%;
+  }
+}
+
+.card {
+  position: relative;
+  box-sizing: border-box;
+  width: 500px;
+  height: 300px;
+  border-radius: 25px;
+  margin: 30px auto 0;
 
   &__container {
     position: relative;
@@ -12,10 +90,12 @@
   }
 
   &__chip {
+    opacity: 1;
     width: 90px;
     position: absolute;
     top: 30px;
     left: 40px;
+    transition: 1s;
   }
 
   &__number {
@@ -24,9 +104,14 @@
     position: absolute;
     top: 50%;
     left: 10%;
+    transition: 1s;
   }
 
   &__user {
+    transition: 1s;
+  }
+
+  &__user, &__date {
     font-size: 20px;
     color: white;
     position: absolute;
@@ -40,20 +125,71 @@
     bottom: 30px;
     right: 50px;
     color: white;
+
+    &--back {
+      position: absolute;
+      width: 200px;
+      transform: translate(50%, 50%);
+      bottom: 50%;
+      right: 50%;
+    }
+  }
+
+  &__magnet {
+    position: absolute;
+    width: 500px;
+    height: 50px;
+    background: black;
+    border: 1px solid white;
+    box-sizing: border-box;
+    top: 30px;
+  }
+
+  &__cvv {
+    position: absolute;
+    font-size: 20px;
+    top: 75%;
+    right: 10%;
+    color: white;
   }
 
   &__details {
+    opacity: 0;
     width: 500px;
     height: 110px;
     background: #FBFBFF;
     position: absolute;
-    top: 280px;
+    top: 180px;
+    transition: 200ms;
     z-index: -1;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
+
+    &.active {
+      opacity: 1;
+      transform: translateY(100px);
+
+      & > .card__options {
+        opacity: 1;
+      }
+
+      & .items {
+        display: none;
+      }
+    }
+
+    &.stats {
+      opacity: 1;
+      height: 450px;
+      transform: translateY(-80px);
+      & .items {
+        display: block;
+      }
+    }
   }
 
   &__options {
+    opacity: 0;
     display: flex;
     justify-content: space-around;
     padding: 40px 40px 0;
@@ -68,12 +204,13 @@
     border-right: 2px solid black;
   }
 }
-.card:last-child {
-  margin-bottom: 50px;
-}
 
 .vr {
   width: 2px;
   height: 50px;
   background: black;
+}
+
+.btn-icon {
+  width: 50px;
 }
