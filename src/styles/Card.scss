@@ -1,19 +1,3 @@
-::-webkit-scrollbar {
-  width: 5px;
-}
-
-::-webkit-scrollbar-track {
-  background-color: #ffeeb6;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb {
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  background: #3848d5;
-}
-
 .back-card, .front-card {
   position: absolute;
   width: 500px;
