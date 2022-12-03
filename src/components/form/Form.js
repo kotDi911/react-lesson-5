@@ -38,22 +38,28 @@ const inputTools = [
 ]
 
 const Form = (props) => {
-    const {card, error, onSubmit, onChange} = props;
+    const {card, error, errorText, onSubmit, onChange} = props;
 
     return (
         <>
             <form onSubmit={onSubmit} className="form">
                 {inputTools.map((item) =>
-                    <Input key={item.id} {...item}
-                           error={error[item.name]}
-                           value={props[item.name]}
-                           onChange={onChange}
+                    <Input
+                        key={item.id} {...item}
+                        error={error}
+                        errorText={errorText[item.name]}
+                        value={props[item.name]}
+                        onChange={onChange}
                     />
                 )}
                 <div className="input__container">
                     <label className="input__label" htmlFor="card">VISA or MASTERCARD</label>
-                    <select className="input__input" name="card" value={card}
-                            onChange={onChange}>
+                    <select
+                        className="input__input"
+                        name="card"
+                        value={card}
+                        onChange={onChange}
+                    >
                         <option value="mastercard">MASTERCARD</option>
                         <option value="visa">VISA</option>
                     </select>

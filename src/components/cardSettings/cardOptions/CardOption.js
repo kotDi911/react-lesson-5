@@ -12,8 +12,6 @@ const CardOption = ({numberVisible, number, user, cvv, card, date, stats}) => {
     const [isFlip, setIsFlip] = useState(false)
     const [isStats, setIsStats] = useState(false)
 
-    console.log(stats)
-
     const showNumber = () => {
         setIsShowNumber(!isShowNumber);
         setIsActiveIcon(!isActiveIcon)

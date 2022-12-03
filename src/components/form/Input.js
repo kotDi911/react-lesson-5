@@ -1,6 +1,6 @@
 import React from "react";
 
-const Input = ({placeholder, name, value, error, type, label, onChange}) => {
+const Input = ({placeholder, name, value, error, errorText, type, label, onChange}) => {
     return (
         <div className="input__container">
             <label className="input__label" htmlFor={name}>{label}</label>
@@ -12,7 +12,7 @@ const Input = ({placeholder, name, value, error, type, label, onChange}) => {
                 value={value}
                 onChange={onChange}
             />
-            {error !== "" && <span className="input__err">{error}</span>}
+            {error !== "" && <span className="input__err">{errorText}</span>}
         </div>
     )
 }

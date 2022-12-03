@@ -17,10 +17,11 @@ class CreateCard extends Component {
             date: new Date().toLocaleDateString("en-US"),
             onSubmit: this.onSubmit.bind(this),
             onChange: this.changeValue.bind(this),
-            error: {
-                number: false,
-                cvv: false,
-                user: false,
+            error: true,
+            errorText: {
+                number: true,
+                cvv: true,
+                user: true,
             }
         }
         this.number = "";
@@ -44,7 +45,7 @@ class CreateCard extends Component {
         if (reg.test(user)) {
             userErr = "";
         } else {
-            userErr = "С твоими данными что то не так ;(";
+            userErr = "С твоими данными что то не так";
         }
 
         if (cvv.length === 3) {
@@ -53,22 +54,33 @@ class CreateCard extends Component {
             cvvErr = "Номер должен быть из 3-х цифр";
         }
 
-        this.setState({
-            error: {
-                number: numberErr,
-                cvv: cvvErr,
-                user: userErr,
-            }
-        });
+        if (numberErr === "" && userErr === "" && cvvErr === "") {
+            this.setState({
+                error: false,
+                errorText: {
+                    number: numberErr,
+                    cvv: cvvErr,
+                    user: userErr,
+                }
+            })
+        } else {
+            this.setState({
+                error: true,
+                errorText: {
+                    number: numberErr,
+                    cvv: cvvErr,
+                    user: userErr,
+                }
+            });
+        }
     }
 
     onSubmit(e) {
         e.preventDefault();
         const {addCard} = this.props
         this.errCheck()
-        if (this.state.error) {
+        if (!this.state.error) {
             addCard(this.state)
-            e.target.reset();
         }
     };
 
@@ -87,15 +99,10 @@ class CreateCard extends Component {
             [e.target.name]: this.changeCheck(e.target.name, e.target.value),
             id: Date.now()
         })
-        if(e.target.name === "number"){
+        if (e.target.name === "number") {
             this.number = e.target.value.match(new RegExp('.{1,4}', 'g')).join(" ")
         }
     };
-
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        const {setContent} = this.props
-        setContent("/create")
-    }
 
     render() {
         const {card, user} = this.state
