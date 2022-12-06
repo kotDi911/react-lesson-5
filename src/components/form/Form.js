@@ -64,7 +64,7 @@ const Form = (props) => {
                         <option value="visa">VISA</option>
                     </select>
                 </div>
-                <button className="submitBtn" type='submit'>Submit</button>
+                <button className="submitBtn" type="submit">Submit</button>
             </form>
         </>
     )

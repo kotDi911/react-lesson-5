@@ -31,7 +31,6 @@ const CardOption = ({numberVisible, number, user, cvv, card, date, stats}) => {
             <CardFront
                 number={setNumber(isShowNumber, number)}
                 user={user}
-                cvv={cvv}
                 card={card}
                 onClick={() => {
                     setIsStats(false)

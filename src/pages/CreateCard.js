@@ -1,13 +1,13 @@
 import React, {Component} from "react";
-import {withCard} from "../../HOC/withCard";
-import Form from "../form/Form";
-import CardFront from "../cardSettings/CardFront";
+import Form from "../components/form/Form";
+import CardFront from "../components/cardSettings/CardFront";
+import {Navigate} from "react-router-dom";
 
 class CreateCard extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            id: "",
+            id: props.id,
             numberVisible: false,
             number: "",
             cvv: "",
@@ -25,8 +25,18 @@ class CreateCard extends Component {
             }
         }
         this.number = "";
+        this.submit = false;
     }
 
+    idUpdate(){
+        if(this.state.id !== this.props.id){
+            this.setState({id: this.props.id})
+        }
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+       this.idUpdate();
+    }
 
     errCheck() {
         let cvvErr;
@@ -63,6 +73,7 @@ class CreateCard extends Component {
                     user: userErr,
                 }
             })
+            return false;
         } else {
             this.setState({
                 error: true,
@@ -72,15 +83,16 @@ class CreateCard extends Component {
                     user: userErr,
                 }
             });
+            return true;
         }
     }
 
     onSubmit(e) {
         e.preventDefault();
         const {addCard} = this.props
-        this.errCheck()
-        if (!this.state.error) {
+        if (!this.errCheck()) {
             addCard(this.state)
+            this.submit = true;
         }
     };
 
@@ -96,8 +108,7 @@ class CreateCard extends Component {
 
     changeValue(e) {
         this.setState({
-            [e.target.name]: this.changeCheck(e.target.name, e.target.value),
-            id: Date.now()
+            [e.target.name]: this.changeCheck(e.target.name, e.target.value)
         })
         if (e.target.name === "number") {
             this.number = e.target.value.match(new RegExp('.{1,4}', 'g')).join(" ")
@@ -112,9 +123,10 @@ class CreateCard extends Component {
                     <CardFront number={this.number} card={card} user={user}/>
                 </div>
                 <Form {...this.state}/>
+                {this.submit && <Navigate to="/"/>}
             </>
         )
     }
 }
 
-export default withCard(CreateCard)
+export default CreateCard

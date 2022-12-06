@@ -1,16 +1,11 @@
-import React, {useContext, useEffect} from "react";
-import {Outlet, useParams} from "react-router";
-import {CardContext} from "../../context/CardContext";
-import CardOption from "../cardSettings/cardOptions/CardOption";
+import React, {useContext} from "react";
+import {useParams} from "react-router";
+import {CardContext} from "../../../context/CardContext";
+import CardOption from "./CardOption";
 
-const CardDetails = (props) => {
+const CardDetails = () => {
     const {cardId} = useParams()
     const {cards} = useContext(CardContext)
-
-    useEffect(() => {
-        const {setContent} = props
-        setContent("/details")
-    }, [props])
 
     const renderCard = () => {
         for (let i = 0; i < cards.length; i++) {
@@ -23,7 +18,6 @@ const CardDetails = (props) => {
     return (
         <div className="details">
             {renderCard()}
-            <Outlet/>
         </div>
     )
 }

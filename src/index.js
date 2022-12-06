@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {BrowserRouter as Router} from "react-router-dom";
-import RouterApp from "./components/router/RouterApp";
+import RouterApp from "./router/RouterApp";
 import './styles/index.scss';
 import {CardProvider} from "./context/CardContext";
 
